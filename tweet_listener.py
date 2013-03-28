@@ -27,10 +27,8 @@ try:
         for tweets in stream:
             tweet = json.loads(str(json.dumps(tweets)))
             twitter_post_id = tweet["id_str"]
-            screen_name = tweet["user"]["screen_name"]
             uid = tweet["user"]["id"]
             user_name = tweet["user"]["name"]
-            print user_name
             if user_name != TWITTER_USERNAME:
                 userobject = api.get_user(uid)
                 userobject.follow()
